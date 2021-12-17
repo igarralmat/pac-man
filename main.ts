@@ -24,7 +24,15 @@ basic.forever(function () {
         basic.pause(200)
     }
     if (Pac_Man.isTouching(Janaria)) {
+        soundExpression.spring.play()
         game.setScore(1)
+        Janaria.delete()
+        Janaria = game.createSprite(randint(0, 4), randint(0, 4))
+        Janaria.set(LedSpriteProperty.Brightness, 10)
+    }
+    if (Pac_Man.isTouching(Mamua)) {
+        soundExpression.twinkle.play()
+        game.gameOver()
     }
 })
 basic.forever(function () {
